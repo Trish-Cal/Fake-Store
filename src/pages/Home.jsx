@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ProductList from '../components/ProductList/ProductList';
 import axios from 'axios'
+import "./Home.css"
 
 export default function Home({
   products, 
@@ -16,8 +17,42 @@ export default function Home({
     })
     .catch((err) => console.log(err));
     }, []);
+
+    const handleCategoryClick = (category)=>{
+
+    }
   return ( 
   <div>
+    <div className='filter-menu'>
+      <span>Filter by Category:</span>
+      <div className='filter-buttons'>
+        <p 
+        onClick={() => {
+          handleCategoryClick("men's clothing");
+          }}
+          >Men's Clothing</p>
+        <p 
+        onClick={() => {
+          handleCategoryClick("women's clothing");
+          }}
+          >Women's Clothing</p>
+        <p 
+        onClick={() => {
+          handleCategoryClick("electronics");
+          }}
+          >Electronics</p>
+        <p 
+        onClick={() => {
+          handleCategoryClick("jewelery");
+          }}
+          >Jewelry</p>
+        <p 
+        onClick={() => {
+          handleCategoryClick("");
+          }}
+          >Reset</p>
+      </div>
+    </div>
     <ProductList products={productsToDisplay}/>
   </div>
   );
