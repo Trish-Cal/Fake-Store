@@ -2,19 +2,23 @@ import React, { useEffect, useState } from 'react'
 import ProductList from '../components/ProductList/ProductList';
 import axios from 'axios'
 
-export default function Home() {
-    const [products, setProducts] = useState([]);
+export default function Home({
+  products, 
+  setProducts, 
+  productsToDisplay, 
+  setProductsToDisplay, 
+}) {
     useEffect(() => {
     axios("https://fakestoreapi.com/products")
     .then((res) => {
-        console.log(res.data);
         setProducts(res.data);
+        setProductsToDisplay(res.data);
     })
     .catch((err) => console.log(err));
     }, []);
   return ( 
   <div>
-    <ProductList products={products}/>
+    <ProductList products={productsToDisplay}/>
   </div>
   );
 }
