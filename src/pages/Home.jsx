@@ -1,17 +1,20 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
+import ProductList from '../components/ProductList/ProductList';
 import axios from 'axios'
 
 export default function Home() {
     const [products, setProducts] = useState([]);
-    useEffect(()=>{
+    useEffect(() => {
     axios("https://fakestoreapi.com/products")
     .then((res) => {
         console.log(res.data);
         setProducts(res.data);
     })
-    .catch(err=>console.log(err))
-    }, [])
-
-    console.log('data in state variable', products);
-  return  <div>Home</div>
+    .catch((err) => console.log(err));
+    }, []);
+  return ( 
+  <div>
+    <ProductList products={products}/>
+  </div>
+  );
 }
