@@ -23,7 +23,7 @@ export default function Home({
         setProductsToDisplay(products);
       } else {
       const filtered = products.filter(
-        (product) => product.category.toLowercase() === category
+        (product) => product.category.toLowerCase() === category
       );
       console.log(filtered);
       setProductsToDisplay(filtered);
