@@ -18,9 +18,18 @@ export default function Home({
     .catch((err) => console.log(err));
     }, []);
 
-    const handleCategoryClick = (category)=>{
-
+    const handleCategoryClick = (category) => {
+      if(category === "") {
+        setProductsToDisplay(products);
+      } else {
+      const filtered = products.filter(
+        (product) => product.category.toLowercase() === category
+      );
+      console.log(filtered);
+      setProductsToDisplay(filtered);
     }
+};
+    
   return ( 
   <div>
     <div className='filter-menu'>
