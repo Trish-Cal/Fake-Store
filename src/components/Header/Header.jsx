@@ -7,6 +7,7 @@ export default function Header({
   products, 
   setProducts, 
   setProductsToDisplay,
+  token
  }) {
   const location = useLocation();
 
@@ -34,7 +35,10 @@ export default function Header({
    <Link to="/" className='login'>Search for Items</Link>
  )}
        <div className="button-cont">
-        <p className='login'>Login</p>
+    {!token && (
+      <Link to="/login" className='login'>
+    Login
+    </Link>)}
        </div>
     </header>
   );
