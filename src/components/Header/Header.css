@@ -24,3 +24,8 @@ font-weight: bold;
     font-size: 20px;
     font-weight: bold;
 }
+
+.login:visited, 
+.logo:visited{
+ color: rgb(50, 50, 50);
+}

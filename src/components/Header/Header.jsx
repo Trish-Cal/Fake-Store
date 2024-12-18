@@ -1,4 +1,6 @@
 import React from 'react'
+import { useLocation, Link } from 'react-router-dom';
+
 import "./Header.css"
 
 export default function Header({ 
@@ -6,6 +8,8 @@ export default function Header({
   setProducts, 
   setProductsToDisplay,
  }) {
+  const location = useLocation();
+
   const handleSearch = (e) => {
     const filtered = products.filter((item) =>
       item.title.toLowerCase().includes(e.target.value.toLowerCase())
@@ -16,12 +20,19 @@ export default function Header({
   
   return (
     <header className="header-cont">
-       <p className='logo'>FAKESTORE</p>
-       <input 
+       <Link to="/" className='logo'>
+       FAKESTORE
+       </Link>
+
+       {location.pathname === "/" ? (
+        <input 
        type='text' 
-       placeholder='search for items' 
+       placeholder="Search for items" 
        onChange={handleSearch} 
        />
+   ) : (
+   <Link to="/" className='login'>Search for Items</Link>
+ )}
        <div className="button-cont">
         <p className='login'>Login</p>
        </div>

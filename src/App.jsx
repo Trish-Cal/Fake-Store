@@ -2,6 +2,7 @@ import { useState } from "react";
 import Header from "./components/Header/Header";
 import Home from "./pages/Home";
 import Details from "./pages/Details";
+import Login from "./components/Login/Login";
 import { Routes, Route } from "react-router-dom"
 
 import "./App.css"
@@ -29,6 +30,7 @@ function App() {
       }
     />
     <Route path="/product/details/:id" element={<Details />} />
+    <Route path="/login" element={<Login />} />
     <Route 
     path="*" 
     element={
