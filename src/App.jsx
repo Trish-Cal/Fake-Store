@@ -59,7 +59,7 @@ function App() {
     <Route element={<ProtectedRoute /> }>
     <Route 
     path="/cart"
-    element={<Cart cart={cart} />} 
+    element={<Cart cart={cart} setCart={setCart} />} 
     />
     </Route>
     <Route 

@@ -1,16 +1,27 @@
 import React, { useEffect, useState } from 'react'
 import "./Cart.css"
-import { UNSAFE_createClientRoutesWithHMRRevalidationOptOut } from 'react-router-dom';
 
-export default function Cart({ cart }) {
+export default function Cart({ cart, setCart }) {
   const [cartTotal, setCartTotal] = useState(0);
   useEffect(()=>{
     setCartTotal(
-      cart.reduce((total, currItem) => total + currItem.price * currItem.quantity,
+      cart.reduce(
+        (total, currItem) => total + currItem.price * currItem.quantity,
        0
       )
     );
-  }, [cart])
+  }, [cart]);
+
+  console.log(cart);
+
+  const handleRemoveItem = (item) => {
+    console.log(item);
+    const newCart = cart.filter(product=>product.id !== item.id);
+    console.log(newCart);
+    setCart(newCart);
+    localStorage.setItem("cart", JSON.stringify(newCart));
+  };
+
   return (
     <div>
     {cart.map((item) => (
@@ -20,7 +31,7 @@ export default function Cart({ cart }) {
             <p>Price:&nbsp;${item?.price.toFixed(2)}</p>
             <p>Qty:&nbsp;{item?.quantity}</p>
             <p>Total:&nbsp;${(item?.quantity * item?.price).toFixed(2)}</p>
-            <button>Remove item</button>
+            <button onClick={() => handleRemoveItem(item)}>Remove item</button>
         </div>
     ))}
     <p className='cart-total'>Cart Total:&nbsp;${cartTotal.toFixed(2)}</p>    
