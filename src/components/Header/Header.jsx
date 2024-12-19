@@ -33,11 +33,17 @@ export default function Header({
    ) : (
    <Link to="/" className='login'>Search for Items</Link>
  )}
-       <div className="button-cont">
+  <div className="button-cont">
     {!token && (
       <Link to="/login" className='login'>
     Login
-    </Link>)}
+    </Link>
+  )}
+  {token && (
+    <Link to="/cart" className='login'>
+  Cart
+  </Link>
+  )}
        </div>
     </header>
   );

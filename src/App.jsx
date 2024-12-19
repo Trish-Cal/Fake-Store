@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import Header from "./components/Header/Header";
 import Home from "./pages/Home";
 import Details from "./pages/Details";
+import Cart from "./pages/Cart";
 import Login from "./components/Login/Login";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import { Routes, Route } from "react-router-dom"
 
 import "./App.css"
@@ -54,6 +56,12 @@ function App() {
     <Route path="/login" 
     element={<Login setToken={setToken} token={token} />} 
     />
+    <Route element={<ProtectedRoute /> }>
+    <Route 
+    path="/cart"
+    element={<Cart cart={cart} />} 
+    />
+    </Route>
     <Route 
     path="*" 
     element={
