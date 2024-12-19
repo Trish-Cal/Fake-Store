@@ -22,10 +22,9 @@ export default function Login({ token, setToken }) {
             } 
         })
         .catch((err) => {
-          console.log(err);
+            console.log(err);
         setLoginError(true);
     });
-  };
     if (token) {
         navigate("/");
     }
@@ -34,7 +33,7 @@ export default function Login({ token, setToken }) {
     <div className='login-container'>
       <form onSubmit={handleSubmit} className='login-form'>
         {loginError && (
-            <p style={{color: "red", marginBottom: "10px" }}>Wrong credentials. Please try again.</p>
+            <p style={{color= "red", marginBottom: "10px" }}>Wrong credentials. Please try again.</p>
             )}
         <input 
         type="text" 
@@ -55,5 +54,5 @@ export default function Login({ token, setToken }) {
       </form>
         
     </div>
-  );
+  )
 }
