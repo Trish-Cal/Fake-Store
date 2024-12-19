@@ -14,7 +14,6 @@ export default function Login({ token, setToken }) {
         axios
         .post("https://fakestoreapi.com/auth/login", { username, password })
         .then((res) => { 
-            console.log(res);
             if (res.data.token) {
                 localStorage.setItem("token", res.data.token);
                 setToken(res.data.token);
@@ -22,7 +21,6 @@ export default function Login({ token, setToken }) {
             } 
         })
         .catch((err) => {
-          console.log(err);
         setLoginError(true);
     });
   };

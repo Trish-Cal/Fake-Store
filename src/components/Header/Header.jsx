@@ -15,7 +15,6 @@ export default function Header({
     const filtered = products.filter((item) =>
       item.title.toLowerCase().includes(e.target.value.toLowerCase())
   );
-  console.log(filtered);
   setProductsToDisplay(filtered);
   };
   

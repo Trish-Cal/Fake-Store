@@ -38,7 +38,10 @@ function App() {
        />
       }
     />
-    <Route path="/product/details/:id" element={<Details />} />
+    <Route 
+    path="/product/details/:id" 
+    element={<Details token={token} />}
+     />
     <Route path="/login" 
     element={<Login setToken={setToken} token={token} />} 
     />

@@ -25,7 +25,6 @@ export default function Home({
       const filtered = products.filter(
         (product) => product.category.toLowerCase() === category
       );
-      console.log(filtered);
       setProductsToDisplay(filtered);
     }
 };
