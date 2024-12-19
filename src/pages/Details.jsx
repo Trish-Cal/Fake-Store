@@ -3,7 +3,7 @@ import ProductCard from '../components/ProductCard/ProductCard';
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 
-export default function Details({ token }) {
+export default function Details({ token, cart, setCart }) {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
     
@@ -15,6 +15,12 @@ export default function Details({ token }) {
     .catch((err) => console.log(err));
     },[]);
   return <div>
-    <ProductCard item={product} parent={"details"} token={token} />
+    <ProductCard 
+    item={product} 
+    parent={"details"} 
+    token={token} 
+    cart={cart} 
+    setCart={setCart} 
+    />
   </div>;
 }

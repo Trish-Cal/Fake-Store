@@ -2,7 +2,36 @@ import React from 'react'
 import { Link } from "react-router-dom"
 import "./ProductCard.css"
 
-export default function ProductCard({ item, parent, token }) {
+export default function ProductCard({ item, parent, token, cart, setCart }) {
+  const addToCart = (item) => {
+    let resultIndex = 0;
+    let productQty = 0;
+    // check if item is in the cart - of YES, then update quantity by 1
+    const result = cart.find((product, index) => {
+      resultIndex = index;
+      return product.id === item.id;
+    });
+    if (result) {
+      cart[resultIndex].quantity += 1;
+      productQty = cart[resultIndex].quantity;
+      localStorage.setItem("cart", JSON.stringify(cart));
+      setCart(cart);
+    } else {
+      item.quantity = 1;
+      productQty = 1;
+      const updatedCart = [...cart, item];
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+
+      setCart(updatedCart);
+    }
+
+    alert(
+      "Added item! You have " + productQty + " " + item.title + " in your cart!"
+    );
+    // if NO, add the item to the cart and set quantity to 1
+  };
+  console.log(cart);
+
   return (
     <Link to={`/product/details/${item?.id}`} className='product-card'> 
         <h2>{item?.title}</h2> 
@@ -13,7 +42,10 @@ export default function ProductCard({ item, parent, token }) {
         )}
         <p>{item?.price.toFixed(2)}</p>
         {parent==="details" && <p>{item?.description}</p>}
-        {parent === "details" && token ? <button>Add to Cart</button> : <Link to='/login'>Login to Add to Cart</Link>}
+        {parent === "details" && token && <button onClick={()=>addToCart(item)}>Add to Cart</button>}
+        {parent === "details" && !token && (
+          <Link to='/login'>Login to Add to Cart</Link>
+        ) }
     </Link>
   )
 }

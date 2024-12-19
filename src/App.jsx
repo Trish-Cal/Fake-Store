@@ -11,6 +11,15 @@ function App() {
   const [products, setProducts] = useState([]);
   const [productsToDisplay, setProductsToDisplay] = useState([]);
   const [token, setToken] = useState(null);
+  const [cart, setCart] = useState([]);
+
+  useEffect(()=>{
+    const localCart = localStorage.getItem("cart");
+    if(localCart){
+      setCart(JSON.parse(localCart));
+    }
+
+  }, [])
 
   useEffect(()=>{
     const localToken = localStorage.getItem("token");
@@ -40,7 +49,7 @@ function App() {
     />
     <Route 
     path="/product/details/:id" 
-    element={<Details token={token} />}
+    element={<Details token={token} cart={cart} setCart={setCart} />}
      />
     <Route path="/login" 
     element={<Login setToken={setToken} token={token} />} 
