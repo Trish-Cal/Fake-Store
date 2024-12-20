@@ -1,28 +1,21 @@
 import React from 'react'
-import "./Cart.css"
+import "./Checkout.css"
 
 export default function Checkout() {
   return (
-    <div className='checkout-container'>
       <form className='checkout-form'>
-        <div className='payment-info'>
         <h2>Shipping Information</h2>
-        <label for="fname">First Name:</label>
         <input type="text"  placeholder="First Name"  />
         <input type="text"  placeholder="Last Name"  />
-        <input type="text"  placeholder="First Name"  />
-        <input type="text"  placeholder="First Name"  />
-        
-        </div>
-        <div className='payment-info'>
+        <input type="text"  placeholder="Street Address"  />
+        <input type="text"  placeholder="Apt#"  />
+        <input type="text"  placeholder="City, State Zip"  />
         <h2>Payment Information</h2>
-        </div>
-        
-
-
-    
+        <input type="text"  placeholder="Cardholder's Name"  />
+        <input type="text"  placeholder="Card number"  />
+        <input type="text"  placeholder="Expiration "  />
+        <input type="text"  placeholder="Security Code"  />
+        <button>Submit</button>
       </form>
-        
-    </div>
   )
 }

@@ -47,7 +47,7 @@ export default function Header({
   )}
   {token && <button onClick={logout}>Logout</button>}
   {token && (
-    <Link to="/cart" className='login'>
+    <Link to="/cart" className='logout'>
   Cart
   </Link>
   )}
