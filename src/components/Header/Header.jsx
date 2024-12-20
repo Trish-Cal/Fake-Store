@@ -7,7 +7,8 @@ export default function Header({
   products, 
   setProducts, 
   setProductsToDisplay,
-  token
+  token, 
+  setToken,
  }) {
   const location = useLocation();
 
@@ -16,6 +17,11 @@ export default function Header({
       item.title.toLowerCase().includes(e.target.value.toLowerCase())
   );
   setProductsToDisplay(filtered);
+  };
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    setToken(null);
   };
   
   return (
@@ -39,6 +45,7 @@ export default function Header({
     Login
     </Link>
   )}
+  {token && <button onClick={logout}>Logout</button>}
   {token && (
     <Link to="/cart" className='login'>
   Cart

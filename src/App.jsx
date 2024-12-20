@@ -3,6 +3,7 @@ import Header from "./components/Header/Header";
 import Home from "./pages/Home";
 import Details from "./pages/Details";
 import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
 import Login from "./components/Login/Login";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import { Routes, Route } from "react-router-dom"
@@ -36,6 +37,7 @@ function App() {
      setProducts={setProducts} 
      setProductsToDisplay={setProductsToDisplay} 
      token={token}
+     setToken={setToken}
    />
    <Routes>
     <Route 
@@ -62,6 +64,7 @@ function App() {
     element={<Cart cart={cart} setCart={setCart} />} 
     />
     </Route>
+    <Route path="/checkout" element={<Checkout />} ></Route>
     <Route 
     path="*" 
     element={

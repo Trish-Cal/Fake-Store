@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "./Cart.css"
+import { Route } from 'react-router-dom';
 
 export default function Cart({ cart, setCart }) {
   const [cartTotal, setCartTotal] = useState(0);
@@ -34,7 +35,9 @@ export default function Cart({ cart, setCart }) {
             <button onClick={() => handleRemoveItem(item)}>Remove item</button>
         </div>
     ))}
-    <p className='cart-total'>Cart Total:&nbsp;${cartTotal.toFixed(2)}</p>    
+    <p className='cart-total'>Cart Total:&nbsp;${cartTotal.toFixed(2)}</p>   
+    {/* <button onClick={"/.Checkout.jsx"}>Checkout</button> */}
+    <button onClick="/checkout">Checkout</button>
     </div>
   );
 }
