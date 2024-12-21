@@ -3,18 +3,76 @@ import "./Checkout.css"
 
 export default function Checkout() {
   return (
-      <form className='checkout-form'>
+      <form className='checkout-form-row'>
         <h2>Shipping Information</h2>
-        <input type="text"  placeholder="First Name"  />
-        <input type="text"  placeholder="Last Name"  />
+          <p>
+            <input type="text" id="fname" placeholder="First Name"  />
+            <input type="text" id="lname" placeholder="Last Name"  />
+          </p>
+          <p>
         <input type="text"  placeholder="Street Address"  />
         <input type="text"  placeholder="Apt#"  />
-        <input type="text"  placeholder="City, State Zip"  />
+        <input type="text"  placeholder="City" />
+        <label for="state"></label>
+        <select id="state">
+          <option value="Alabama">Alabama</option>
+          <option value="Alaska">Alaska</option>
+          <option value="Arizona">Arizona</option>
+          <option value="Arkansas">Arkansas</option>
+          <option value="California">California</option>
+          <option value="Colorado">Colorado</option>
+          <option value="Connecticut">Connecticut</option>
+          <option value="Delaware">Delaware</option>
+          <option value="Florida">Florida</option>
+          <option value="Georgia">Georgia</option>
+          <option value="Hawaii">Hawaii</option>
+          <option value="Idaho">Idaho</option>
+          <option value="Illinois">Illinois</option>
+          <option value="Indiana">Indiana</option>
+          <option value="Iowa">Iowa</option>
+          <option value="Kansas">Kansas</option>
+          <option value="Kentucky">Kentucky</option>
+          <option value="Louisiana">Louisiana</option>
+          <option value="Maine">Maine</option>
+          <option value="Maryland">Maryland</option>
+          <option value="Massachusetts">Massachusetts</option>
+          <option value="Michigan">Michigan</option>
+          <option value="Minnesota">Minnesota</option>
+          <option value="Mississippi">Mississippi</option>
+          <option value="Missouri">Missouri</option>
+          <option value="Montana">Montana</option>
+          <option value="Nebraska">Nebraska</option>
+          <option value="New Hampshire">New Hampshire</option>
+          <option value="New Jersey">New Jersey</option>
+          <option value="New Mexico">New Mexico</option>
+          <option value="New York">New York</option>
+          <option value="North Carolina">North Carolina</option>
+          <option value="North Dakota">North Dakota</option>
+          <option value="Ohio">Ohio</option>
+          <option value="Oklahoma">Oklahoma</option>
+          <option value="Oregon">Oregon</option>
+          <option value="Pennsylvania">Pennsylvania</option>
+          <option value="Rhode Island">Rhode Island</option>
+          <option value="South Carolina">South Carolina</option>
+          <option value="Tennessee">Tennessee</option>
+          <option value="Texas">Texas</option>
+          <option value="Utah">Utah</option>
+          <option value="Vermont">Vermont</option>
+          <option value="Virginia">Virginia</option>
+          <option value="Washington">Washington</option>
+          <option value="West Virginia">AWest Virginia</option>
+          <option value="Wisconsin">Wisconsin</option>
+          <option value="Wyoming">Wyoming</option>
+          </select>
+        <input type="number"  placeholder="Zip" />
+        </p>
         <h2>Payment Information</h2>
-        <input type="text"  placeholder="Cardholder's Name"  />
-        <input type="text"  placeholder="Card number"  />
-        <input type="text"  placeholder="Expiration "  />
-        <input type="text"  placeholder="Security Code"  />
+        <p>
+        <input type="text"  placeholder="Cardholder's Name"/>
+        <input type="cc-number"  maxLength="19" placeholder="Card number"  />
+        <input type="cc-expires"  placeholder="Expiration Date "  />
+        <input type="number" maxLength={4} placeholder="CVC"  />
+        </p>
         <button>Submit</button>
       </form>
   )

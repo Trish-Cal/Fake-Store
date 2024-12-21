@@ -24,6 +24,12 @@ export default function Cart({ cart, setCart }) {
     localStorage.setItem("cart", JSON.stringify(newCart));
   };
 
+  const handleDecrease = (item) => {
+    const temp = cartTotal;
+    temp[index].quantity = temp[index].quantity + 1;
+    setCartTotal(temp);
+  }
+
   return (
     <div>
     {cart.map((item) => (
