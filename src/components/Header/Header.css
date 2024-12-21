@@ -30,27 +30,17 @@ font-weight: bold;
  color: rgb(50, 50, 50);
 }
 
+.logout-button{
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgba(75, 75, 75, .75);
+    color: rgb(50, 50, 50);
+}
+
+
 .button-cont{
     width: 10%;
     display: flex;
     justify-content: space-between;
 }
 
-.logout{
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.logout:visited{
- color: rgb(50, 50, 50);
-}
-
-.checkout{
-    font-size: 20px;
-    font-weight: bold;
-    justify-content: flex-end;
-}
-
-.checkout:visited{
- color: rgb(50, 50, 50);
-}
